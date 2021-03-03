@@ -26,5 +26,8 @@ class BatchConfiguration(
     fun reader(resource: Resource): FlatFileItemReader<Person> = FlatFileItemReaderBuilder<Person>()
         .name("PersonReader")
         .resource(resource)
+        .delimited()
+        .delimiter(",")
+        .names("firstName", "lastName", "email", "location")
         .build()
 }
