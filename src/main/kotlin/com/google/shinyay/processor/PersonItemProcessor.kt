@@ -6,13 +6,13 @@ import org.springframework.batch.item.ItemProcessor
 
 class PersonItemProcessor : ItemProcessor<Person, Person> {
     override fun process(person: Person): Person {
-        val transformedPerson = Person(
+        val upperCasedPerson = Person(
             person.firstName.toUpperCase(),
             person.lastName.toUpperCase(),
             person.email,
             person.location
         )
-        logger.debug("From $person To $transformedPerson")
-        return transformedPerson
+        logger.debug("From $person To $upperCasedPerson")
+        return upperCasedPerson
     }
 }
