@@ -3,6 +3,20 @@
 Overview
 
 ## Description
+### BatchConfiguration
+#### JobParameter
+- `@Value("#{jobParameters['xxx']}")`
+
+You can refer JobParameter with `@Value("#{jobParameters['xxx']}")` by Command Line Arguments.
+This expressions called by Spring Expression Language (**SpEL**)
+```shell script
+$ java -jar springbatch.jar foo.param001=bar
+```
+
+```kotlin
+@Value("#{jobParameters['foo.param001']}")
+val param001: String
+```
 
 ## Demo
 ### Local - Start Database as Container
