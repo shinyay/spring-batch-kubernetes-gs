@@ -23,7 +23,8 @@ class BatchConfiguration(
     fun resource(@Value("#{jobParameters['fileName']}") fileName: String): Resource = UrlResource(fileName)
 
     @Bean
-    fun reader(): FlatFileItemReader<Person> = FlatFileItemReaderBuilder<Person>()
+    fun reader(resource: Resource): FlatFileItemReader<Person> = FlatFileItemReaderBuilder<Person>()
         .name("PersonReader")
+        .resource(resource)
         .build()
 }
