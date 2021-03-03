@@ -1,3 +1,6 @@
 package com.google.shinyay.entity
 
-data class Person()
+data class Person(
+    val firstName: String,
+    val lastName: String
+)
