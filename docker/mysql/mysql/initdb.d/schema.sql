@@ -1,9 +1,9 @@
 CREATE TABLE PEOPLE  (
                          ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                         FIRST_NAME VARCHAR(20),
-                         LAST_NAME VARCHAR(20),
-                         EMAIL VARCHAR(25),
-                         LOCATION VARCHAR(20)
+                         FIRST_NAME VARCHAR(30),
+                         LAST_NAME VARCHAR(30),
+                         EMAIL VARCHAR(40),
+                         LOCATION VARCHAR(40)
 ) ENGINE=InnoDB;
 
 CREATE TABLE BATCH_JOB_INSTANCE  (
