@@ -2,10 +2,12 @@ package com.google.shinyay.configuration
 
 import com.google.shinyay.entity.Person
 import com.google.shinyay.processor.PersonItemProcessor
+import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepScope
+import org.springframework.batch.core.launch.support.RunIdIncrementer
 import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider
 import org.springframework.batch.item.database.JdbcBatchItemWriter
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder
@@ -53,11 +55,19 @@ class BatchConfiguration(
 
     @Bean
     fun upperCaseProcessor(): PersonItemProcessor = PersonItemProcessor()
+
     @Bean
     fun step(resource: Resource, dataSource: DataSource): Step = stepBuilderFactory.get("uppercase-step")
         .chunk<Person, Person>(10)
         .reader(reader(resource))
         .processor(upperCaseProcessor())
         .writer(writer(dataSource))
+        .build()
+
+    @Bean
+    fun job(step: Step): Job = jobBuilderFactory["uppercase-job"]
+        .incrementer(RunIdIncrementer())
+        .flow(step)
+        .end()
         .build()
 }
