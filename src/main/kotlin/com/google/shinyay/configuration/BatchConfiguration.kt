@@ -4,6 +4,7 @@ import com.google.shinyay.entity.Person
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepScope
+import org.springframework.batch.item.database.BeanPropertyItemSqlParameterSourceProvider
 import org.springframework.batch.item.database.JdbcBatchItemWriter
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder
 import org.springframework.batch.item.file.FlatFileItemReader
@@ -42,5 +43,9 @@ class BatchConfiguration(
 
     @Bean
     fun writer(dataSource: DataSource): JdbcBatchItemWriter<Person> = JdbcBatchItemWriterBuilder<Person>()
+//        .itemSqlParameterSourceProvider(BeanPropertyItemSqlParameterSourceProvider<Person>())
+        .beanMapped()
+        .sql("INSERT INTO people (first_name, last_name, email, location) VALUES (:firstName, :lastName. :email, :location)")
+        .dataSource(dataSource)
         .build()
 }
