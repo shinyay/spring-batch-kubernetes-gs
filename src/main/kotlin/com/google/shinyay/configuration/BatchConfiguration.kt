@@ -4,13 +4,17 @@ import com.google.shinyay.entity.Person
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepScope
+import org.springframework.batch.item.database.JdbcBatchItemWriter
+import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder
 import org.springframework.batch.item.file.FlatFileItemReader
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder
+import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.Resource
 import org.springframework.core.io.UrlResource
+import javax.sql.DataSource
 
 @Configuration
 class BatchConfiguration(
@@ -29,5 +33,14 @@ class BatchConfiguration(
         .delimited()
         .delimiter(",")
         .names("firstName", "lastName", "email", "location")
+        .fieldSetMapper(object : BeanWrapperFieldSetMapper<Person?>() {
+            init {
+                setTargetType(Person::class.java)
+            }
+        })
+        .build()
+
+    @Bean
+    fun writer(dataSource: DataSource): JdbcBatchItemWriter<Person> = JdbcBatchItemWriterBuilder<Person>()
         .build()
 }
