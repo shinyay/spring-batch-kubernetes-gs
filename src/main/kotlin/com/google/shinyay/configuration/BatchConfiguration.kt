@@ -1,6 +1,7 @@
 package com.google.shinyay.configuration
 
 import com.google.shinyay.entity.Person
+import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepScope
@@ -47,5 +48,10 @@ class BatchConfiguration(
         .beanMapped()
         .sql("INSERT INTO people (first_name, last_name, email, location) VALUES (:firstName, :lastName. :email, :location)")
         .dataSource(dataSource)
+        .build()
+
+    @Bean
+    fun step(): Step = stepBuilderFactory.get("uppercase-step")
+        .chunk<Person, Person>(10)
         .build()
 }
