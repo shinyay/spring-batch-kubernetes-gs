@@ -1,6 +1,7 @@
 package com.google.shinyay.configuration
 
 import com.google.shinyay.entity.Person
+import com.google.shinyay.processor.PersonItemProcessor
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory
@@ -51,7 +52,12 @@ class BatchConfiguration(
         .build()
 
     @Bean
-    fun step(): Step = stepBuilderFactory.get("uppercase-step")
+    fun upperCaseProcessor(): PersonItemProcessor = PersonItemProcessor()
+    @Bean
+    fun step(resource: Resource, dataSource: DataSource): Step = stepBuilderFactory.get("uppercase-step")
         .chunk<Person, Person>(10)
+        .reader(reader(resource))
+        .processor(upperCaseProcessor())
+        .writer(writer(dataSource))
         .build()
 }
