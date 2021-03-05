@@ -109,6 +109,11 @@ List Databases
 $ gcloud sql databases list --instance mysql-instance
 ```
 
+Connect to MySQL
+```shell script
+$ gcloud beta sql connect mysql-instance
+```
+
 ## Features
 
 - feature:1
