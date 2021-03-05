@@ -50,6 +50,18 @@ mysql> show tables;
 | PEOPLE                       |
 +------------------------------+
 10 rows in set (0.01 sec)
+
+mysql> show full columns from PEOPLE;
++------------+-------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+
+| Field      | Type        | Collation          | Null | Key | Default | Extra          | Privileges                      | Comment |
++------------+-------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+
+| ID         | bigint(20)  | NULL               | NO   | PRI | NULL    | auto_increment | select,insert,update,references |         |
+| FIRST_NAME | varchar(30) | utf8mb4_general_ci | YES  |     | NULL    |                | select,insert,update,references |         |
+| LAST_NAME  | varchar(30) | utf8mb4_general_ci | YES  |     | NULL    |                | select,insert,update,references |         |
+| EMAIL      | varchar(40) | utf8mb4_general_ci | YES  |     | NULL    |                | select,insert,update,references |         |
+| LOCATION   | varchar(40) | utf8mb4_general_ci | YES  |     | NULL    |                | select,insert,update,references |         |
++------------+-------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+
+5 rows in set (0.00 sec)
 ```
 
 ## Features
