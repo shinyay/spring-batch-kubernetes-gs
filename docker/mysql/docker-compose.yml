@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: guest
       MYSQL_PASSWORD: guest
-      MYSQL_DATABASE: guest
+      MYSQL_DATABASE: mydb
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     ports:
