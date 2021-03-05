@@ -49,7 +49,7 @@ class BatchConfiguration(
     fun writer(dataSource: DataSource): JdbcBatchItemWriter<Person> = JdbcBatchItemWriterBuilder<Person>()
 //        .itemSqlParameterSourceProvider(BeanPropertyItemSqlParameterSourceProvider<Person>())
         .beanMapped()
-        .sql("INSERT INTO people (first_name, last_name, email, location) VALUES (:firstName, :lastName. :email, :location)")
+        .sql("INSERT INTO PEOPLE (first_name, last_name, email, location) VALUES (:firstName, :lastName, :email, :location)")
         .dataSource(dataSource)
         .build()
 
