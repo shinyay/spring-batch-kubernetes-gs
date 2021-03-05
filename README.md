@@ -94,6 +94,12 @@ $ gcloud sql instances create mysql-instance \
     --root-password root
 ```
 
+Create Database
+```shell script
+$ gcloud sql databases create mydb --instance mysql-instance
+```
+
+
 ## Features
 
 - feature:1
