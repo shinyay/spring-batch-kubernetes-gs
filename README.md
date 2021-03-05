@@ -104,6 +104,10 @@ Create Database
 $ gcloud sql databases create mydb --instance mysql-instance
 ```
 
+List Databases
+```shell script
+$ gcloud sql databases list --instance mysql-instance
+```
 
 ## Features
 
