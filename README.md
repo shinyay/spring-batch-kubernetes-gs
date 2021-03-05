@@ -82,6 +82,18 @@ $ docker run \
      fileName=https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv
 ```
 
+### Cloud
+#### Create Cloud SQL for MySQL
+Create Instance
+```shell script
+$ gcloud sql instances create mysql-instance \
+    --database-version MYSQL_5_7 \
+    --region us-central1 \
+    --cpu 2 \
+    --memory 4G \
+    --root-password root
+```
+
 ## Features
 
 - feature:1
