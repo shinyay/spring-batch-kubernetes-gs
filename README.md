@@ -19,7 +19,8 @@ val param001: String
 ```
 
 ## Demo
-### Local - Start Database as a Container
+### Local
+#### Start Database as a Container
 Start MySQL as a Container
 ```shell script
 $ docker-compose -f docker/mysql/docker-compose.yml up -d
@@ -63,6 +64,13 @@ mysql> show full columns from PEOPLE;
 +------------+-------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+
 5 rows in set (0.00 sec)
 ```
+
+#### Build Container
+```shell script
+$ ./gradlew clean bootBuildImage --imageName shinyay/spring-batch:0.0.1
+```
+
+
 
 ## Features
 
