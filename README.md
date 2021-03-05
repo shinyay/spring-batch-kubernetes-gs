@@ -19,9 +19,15 @@ val param001: String
 ```
 
 ## Demo
-### Local - Start Database as Container
+### Local - Start Database as a Container
+Start MySQL as a Container
 ```shell script
-$ docker-compose up -d
+$ docker-compose -f docker/mysql/docker-compose.yml up -d
+```
+
+Access inside the Container
+```shell script
+$ docker exec -it my_db bash
 ```
 
 ```shell script
