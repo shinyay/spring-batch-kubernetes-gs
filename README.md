@@ -70,7 +70,17 @@ mysql> show full columns from PEOPLE;
 $ ./gradlew clean bootBuildImage --imageName shinyay/spring-batch:0.0.1
 ```
 
-
+#### Execute Spring Batch
+```shell script
+$ docker run \
+     --net mysql_default \
+     -e SPRING_DATASOURCE_URL=jdbc:mysql://my_db:3306/mydb \
+     -e SPRING_DATASOURCE_USERNAME=root \
+     -e SPRING_DATASOURCE_PASSWORD=root \
+     -e SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver \
+     shinyay/spring-batch:0.0.1 \
+     fileName=https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv
+```
 
 ## Features
 
