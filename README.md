@@ -114,6 +114,12 @@ Connect to MySQL
 $ gcloud beta sql connect mysql-instance
 ```
 
+#### GKE
+Deploy Secret
+```shell script
+$ kubectl apply -f kubernetes/secret.yml
+```
+
 ## Features
 
 - feature:1
