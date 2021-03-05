@@ -31,6 +31,9 @@ $ docker exec -it my_db bash
 ```
 
 ```shell script
+# mysql -u root mydb -p
+Enter password: root
+
 mysql> show tables;
 +------------------------------+
 | Tables_in_guest              |
