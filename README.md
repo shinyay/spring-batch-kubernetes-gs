@@ -109,6 +109,20 @@ List Databases
 $ gcloud sql databases list --instance mysql-instance
 ```
 
+Add User
+```shell script
+$ gcloud sql users create batch --instance=mysql-instance --host=% --password=batch
+```
+
+List Users
+```shell script
+$ gcloud sql users list --instance mysql-instance
+
+NAME   HOST  TYPE
+batch  %     BUILT_IN
+root   %     BUILT_IN
+```
+
 Connect to MySQL
 ```shell script
 $ gcloud beta sql connect mysql-instance
