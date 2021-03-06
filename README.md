@@ -134,6 +134,15 @@ Deploy Secret
 $ kubectl apply -f kubernetes/secret.yml
 ```
 
+#### Workload Identity for CloudSQL
+Confirm Workload Identity enabled
+```shell script
+$ gcloud container clusters describe shinyay-cluster-auto --region us-central1
+
+workloadIdentityConfig:
+  workloadPool: <PROJECT_ID>.svc.id.goog
+```
+
 ## Features
 
 - feature:1
