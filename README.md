@@ -141,6 +141,13 @@ Create Service Account
 $ gcloud iam service-accounts create spring-cloud-gcp --display-name "Spring Cloud GCP"
 ```
 
+Grant Service Account to Role
+```shell script
+$ gcloud projects add-iam-policy-binding (gcloud config get-value project) \
+    --member serviceAccount:spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com \
+    --roles/cloudsql.client
+```
+
 ##### Enable Workload Identity
 Confirm Workload Identity enabled
 ```shell script
