@@ -208,6 +208,18 @@ $ kubectl annotate serviceaccount \
     iam.gke.io/gcp-service-account=spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com
 ```
 
+Verify Workload Identity Configuration
+```shell script
+$ kubectl run -it \
+    --image google/cloud-sdk:slim \
+    --serviceaccount batch \
+    workload-identity-test
+
+root@workload-identity-test:/# gcloud auth list
+ACTIVE  ACCOUNT
+*       spring-cloud-gcp@<PROJECT_ID>.iam.gserviceaccount.com
+``` 
+
 ## Features
 
 - feature:1
