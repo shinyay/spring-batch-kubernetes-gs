@@ -194,6 +194,19 @@ batch     1
 default   1      
 ```
 
+##### Bind KSA and GSA
+
+```shell script
+$ gcloud iam service-accounts add-iam-policy-binding \
+    --role roles/iam.workloadIdentityUser \
+    --member "serviceAccount:(gcloud config get-value project).svc.id.goog[default/batch]" \
+    spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com
+```
+```shell script
+$ kubectl annotate serviceaccount \
+    batch \
+    iam.gke.io/gcp-service-account=spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com
+```
 
 ## Features
 
