@@ -135,6 +135,7 @@ $ kubectl apply -f kubernetes/secret.yml
 ```
 
 #### Workload Identity for CloudSQL
+##### Enable Workload Identity
 Confirm Workload Identity enabled
 ```shell script
 $ gcloud container clusters describe shinyay-cluster-auto --region us-central1
@@ -153,6 +154,21 @@ or
 ```shell script
 $ gcloud container clusters update <CLUSTER_NAME> \
     --workload-pool=<PROJECT_ID>.svc.id.goog
+```
+
+##### Create Kubernetes Service Account
+- [service_account.yml](kubernetes/service_account.yml)
+
+```shell script
+$ kubectl apply -f kubernetes/service_account.yml
+```
+
+```shell script
+$ kubectl get sa
+
+NAME      SECRETS
+batch     1      
+default   1      
 ```
 
 ## Features
