@@ -143,6 +143,18 @@ workloadIdentityConfig:
   workloadPool: <PROJECT_ID>.svc.id.goog
 ```
 
+If Workload Identity is not enabled, you can configure as the following:
+
+```shell script
+$ gcloud container clusters create <CLUSTER_NAME> \
+    --workload-pool=<PROJECT_ID>.svc.id.goog
+```
+or
+```shell script
+$ gcloud container clusters update <CLUSTER_NAME> \
+    --workload-pool=<PROJECT_ID>.svc.id.goog
+```
+
 ## Features
 
 - feature:1
