@@ -148,6 +148,16 @@ $ gcloud projects add-iam-policy-binding (gcloud config get-value project) \
     --roles/cloudsql.client
 ```
 
+Create Service Account Key
+```shell script
+$ gcloud iam service-accounts keys create key.json \
+  --iam-account spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com
+```
+```shell script
+$ base64 key.json
+
+ewogICJ0eXBlIjo......bnQuY29tIgp9Cg==
+```
 ##### Enable Workload Identity
 Confirm Workload Identity enabled
 ```shell script
