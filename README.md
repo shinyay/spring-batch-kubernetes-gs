@@ -135,6 +135,12 @@ $ kubectl apply -f kubernetes/secret.yml
 ```
 
 #### Workload Identity for CloudSQL
+##### Create Service Account for Cloud SQL
+Create Service Account
+```shell script
+$ gcloud iam service-accounts create spring-cloud-gcp --display-name "Spring Cloud GCP"
+```
+
 ##### Enable Workload Identity
 Confirm Workload Identity enabled
 ```shell script
@@ -170,6 +176,7 @@ NAME      SECRETS
 batch     1      
 default   1      
 ```
+
 
 ## Features
 
