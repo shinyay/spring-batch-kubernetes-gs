@@ -69,11 +69,19 @@ mysql> show full columns from PEOPLE;
 Build Image for Docker Hub
 ```shell script
 $ ./gradlew clean bootBuildImage --imageName shinyay/spring-batch:0.0.1
+$ docker push shinyay/spring-batch:0.0.1
 ```
 
 Build Image for GCR
 ```shell script
 $ ./gradlew clean bootBuildImage --imageName gcr.io/(gcloud config get-value project)/spring-batch:0.0.1
+$ docker push gcr.io/(gcloud config get-value project)/spring-batch:0.0.1
+```
+
+Build Image for Artifact Registry
+```shell script
+$ ./gradlew clean bootBuildImage --imageName us-central1-docker.pkg.dev/(gcloud config get-value project)/shinyay-docker-repo/spring-batch:0.0.1
+$ docker push us-central1-docker.pkg.dev/(gcloud config get-value project)/shinyay-docker-repo/spring-batch:0.0.1
 ```
 
 Build Image with Cloud Build for Artifact Registry
