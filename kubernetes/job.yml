@@ -12,10 +12,15 @@ spec:
 #          image: gcr.io/$PROJECT_NAME/spring-batch:0.0.1
           image: us-central1-docker.pkg.dev/$PROJECT_NAME/shinyay-docker-repo/spring-batch:0.0.1
           imagePullPolicy: Always
-          args: ["fileName=$FILE_NAME"]
+          args: ["fileName=$(FILE_NAME)"]
           env:
             - name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
               value: com.mysql.cj.jdbc.Driver
+            - name: FILE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mydb-config
+                  key: filename
             - name: SPRING_CLOUD_GCP_SQL_INSTANCE-CONNECTION-NAME
               valueFrom:
                 configMapKeyRef:
