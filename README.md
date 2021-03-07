@@ -229,6 +229,13 @@ ACTIVE  ACCOUNT
 ```
 
 #### GKE
+##### Prepare ConfigMap
+- [configmap.yml](kubernetes/configmap.yml)
+
+Put the following values:
+- Cloud SQL Instance Connection Name
+  - `gcloud sql instances describe mysql-instance --format='value(connectionName)'`
+
 ##### Prepare Secret
 - [secret.yml](kubernetes/secret.yml)
 
