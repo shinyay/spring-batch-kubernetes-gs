@@ -285,9 +285,8 @@ $ kubectl apply -f kubernetes/secret.yml
 #### Execute Batch as Job
 ```shell script
 $ JOB_NAME=create-user \
-    FILE_NAME="https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv" \
-    PROJECT_NAME=(gcloud config get-value project) \
-    envsubst < kubernetes/job.yml | kubectl apply -f -
+  PROJECT_NAME=(gcloud config get-value project) \
+  envsubst < kubernetes/job.yml | kubectl apply -f -
 ```
 
 ## Features
