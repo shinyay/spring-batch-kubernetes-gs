@@ -4,3 +4,4 @@ metadata:
   name: mydb-config
 data:
   db.instance: shinyay-works-201123-296509:us-central1:mysql-instance
+  filename: https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv
