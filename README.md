@@ -128,12 +128,6 @@ Connect to MySQL
 $ gcloud beta sql connect mysql-instance
 ```
 
-#### GKE
-Deploy Secret
-```shell script
-$ kubectl apply -f kubernetes/secret.yml
-```
-
 #### Workload Identity for CloudSQL
 ##### Create Service Account for Cloud SQL
 Create Service Account
@@ -218,7 +212,34 @@ $ kubectl run -it \
 root@workload-identity-test:/# gcloud auth list
 ACTIVE  ACCOUNT
 *       spring-cloud-gcp@<PROJECT_ID>.iam.gserviceaccount.com
-``` 
+```
+
+#### GKE
+##### Prepare Secret
+- [secret.yml](kubernetes/secret.yml)
+
+Put the following values:
+- Cloud SQL User
+- Cloud SQL Password
+- Service Account Key for Cloud SQL
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mydb-secret
+type: Opaque
+data:
+  db.username: YmF0Y2g=  #batch
+  db.password: YmF0Y2g=  #batch
+  db.accountkey: ewogICJ0e......
+```
+Deploy Secret
+```shell script
+$ kubectl apply -f kubernetes/secret.yml
+```
+
+
 
 ## Features
 
