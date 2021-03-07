@@ -15,6 +15,11 @@ spec:
           env:
             - name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
               value: com.mysql.cj.jdbc.Driver
+            - name: SPRING_CLOUD_GCP_SQL_INSTANCE-CONNECTION-NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mydb-config
+                  key: db.instance
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
