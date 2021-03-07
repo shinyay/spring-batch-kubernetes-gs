@@ -1,1 +1,7 @@
-
+spring:
+  cloud:
+    gcp:
+      sql:
+#        instance-connection-name: <PROJECT_ID>:<REGION>:<INSTANCE_NAME> (from ConfigMap)
+        database-name: mydb
+#        encoded-key: ewogICJ0e...... (from Secret)
