@@ -1,10 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: bootiful-job-$JOB_NAME
+  name: spring-job-$JOB_NAME
 spec:
   template:
     spec:
+      serviceAccountName: batch
       restartPolicy: OnFailure
       containers:
         - name: bootiful-job
@@ -14,8 +15,6 @@ spec:
           env:
             - name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
               value: com.mysql.cj.jdbc.Driver
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql/mydb
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
