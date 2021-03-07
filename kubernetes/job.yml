@@ -25,3 +25,8 @@ spec:
                 secretKeyRef:
                   name: mydb-secret
                   key: db.password
+            - name: SPRING_CLOUD_GCP_SQL_ENCODED-KEY
+              valueFrom:
+                secretKeyRef:
+                  name: mydb-secret
+                  key: db.accountkey
