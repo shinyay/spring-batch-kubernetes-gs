@@ -204,7 +204,7 @@ $ kubectl annotate serviceaccount \
     iam.gke.io/gcp-service-account=spring-cloud-gcp@(gcloud config get-value project).iam.gserviceaccount.com
 ```
 
-Specify Kubernetes Service Account in Job.yml
+Specify **Kubernetes Service Account** in Job.yml
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -212,6 +212,8 @@ spec:
   template:
     spec:
       serviceAccountName: batch
+      containers:
+        - name: spring-job
   :
   :
 ```
