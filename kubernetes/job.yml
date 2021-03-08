@@ -12,6 +12,10 @@ spec:
 #          image: gcr.io/$PROJECT_NAME/spring-batch:0.0.1
           image: us-central1-docker.pkg.dev/$PROJECT_NAME/shinyay-docker-repo/spring-batch:0.0.1
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 2000m
+              memory: 4Gi
           args: ["fileName=$(FILE_NAME)"]
           env:
             - name: SPRING_DATASOURCE_DRIVER-CLASS-NAME
