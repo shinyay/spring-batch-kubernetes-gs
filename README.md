@@ -145,7 +145,7 @@ root   %     BUILT_IN
 
 Connect to MySQL
 ```shell script
-$ gcloud beta sql connect mysql-instance
+$ gcloud beta sql connect mysql-instance -u batch
 ```
 
 #### GKE Autopilot Cluster
