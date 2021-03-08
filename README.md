@@ -162,6 +162,12 @@ $ gcloud container clusters create-auto shinyay-cluster-auto \
     --region us-central1 \
     --project (gcloud config get-value project)
 ```
+
+##### Verify Nodes
+```shell script
+$ kubectl get nodes -L beta.kubernetes.io/instance-type
+```
+
 #### Workload Identity for CloudSQL
 ##### Create Service Account for Cloud SQL
 Create Service Account
