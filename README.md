@@ -175,7 +175,7 @@ ewogICJ0eXBlIjo......bnQuY29tIgp9Cg==
 ##### Enable Workload Identity
 Confirm Workload Identity enabled
 ```shell script
-$ gcloud container clusters describe shinyay-cluster-auto --region us-central1
+$ gcloud container clusters describe shinyay-cluster-auto --region us-central1|grep -C 2 workloadIdentity
 
 workloadIdentityConfig:
   workloadPool: <PROJECT_ID>.svc.id.goog
