@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: spring-job-$JOB_NAME
 spec:
+  parallelism: 3
   template:
     spec:
       serviceAccountName: batch
