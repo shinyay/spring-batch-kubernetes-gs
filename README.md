@@ -148,6 +148,13 @@ Connect to MySQL
 $ gcloud beta sql connect mysql-instance -u batch
 ```
 
+Create Schema
+```shell script
+mysql> use mydb;
+mysql> create ...
+mysql> show full columns from PEOPLE;
+```
+
 #### GKE Autopilot Cluster
 ##### Create Autopilot Cluster
 ```shell script
