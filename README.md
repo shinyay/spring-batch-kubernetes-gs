@@ -148,6 +148,13 @@ Connect to MySQL
 $ gcloud beta sql connect mysql-instance
 ```
 
+#### GKE Autopilot Cluster
+##### Create Autopilot Cluster
+```shell script
+$ gcloud container clusters create-auto shinyay-cluster-auto \
+    --region us-central1 \
+    --project (gcloud config get-value project)
+```
 #### Workload Identity for CloudSQL
 ##### Create Service Account for Cloud SQL
 Create Service Account
