@@ -2,6 +2,7 @@ CREATE TABLE PEOPLE  (
                          ID BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
                          FIRST_NAME VARCHAR(30),
                          LAST_NAME VARCHAR(30),
+                         AGE INT,
                          EMAIL VARCHAR(40),
                          LOCATION VARCHAR(40)
 ) ENGINE=InnoDB;
