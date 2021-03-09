@@ -9,6 +9,7 @@ class PersonItemProcessor : ItemProcessor<Person, Person> {
         val upperCasedPerson = Person(
             person.firstName.toUpperCase(),
             person.lastName.toUpperCase(),
+            (0..100).random(),
             person.email,
             person.location
         )
