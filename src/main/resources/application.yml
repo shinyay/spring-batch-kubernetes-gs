@@ -1,13 +1,17 @@
 spring:
   profiles:
-    active: local
+    include: local
+  cloud:
+    gcp:
+      sql:
+        enabled: false
 ---
 spring:
   config:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:mysql://my_db:3306/mydb
+    url: "jdbc:mysql://my_db:3306/mydb"
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
