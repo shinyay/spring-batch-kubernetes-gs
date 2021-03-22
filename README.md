@@ -121,6 +121,13 @@ $ docker run \
      shinyay/spring-batch:0.0.1 \
      fileName=https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv
 ```
+or
+```shell script
+$ docker run \
+     --net mysql_default \
+     shinyay/spring-batch:0.0.1 \
+     fileName=https://raw.githubusercontent.com/shinyay/spring-batch-kubernetes-gs/main/src/main/resources/person.csv
+```
 
 ### Cloud
 #### Create Cloud SQL for MySQL
